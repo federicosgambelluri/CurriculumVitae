@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -45,8 +48,15 @@
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         .container {
@@ -59,13 +69,13 @@
 
         /* Header spaziale */
         .header {
-            background: linear-gradient(135deg, rgba(0,100,255,0.1), rgba(100,0,255,0.1));
-            border: 1px solid rgba(0,200,255,0.3);
+            background: linear-gradient(135deg, rgba(0, 100, 255, 0.1), rgba(100, 0, 255, 0.1));
+            border: 1px solid rgba(0, 200, 255, 0.3);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 40px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 50px rgba(0,200,255,0.2);
+            box-shadow: 0 0 50px rgba(0, 200, 255, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -77,13 +87,18 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0,200,255,0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(0, 200, 255, 0.1), transparent);
             animation: rotate 20s linear infinite;
         }
 
         @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .profile-section {
@@ -99,7 +114,7 @@
             height: 200px;
             border-radius: 50%;
             border: 3px solid #00c8ff;
-            box-shadow: 0 0 30px rgba(0,200,255,0.5);
+            box-shadow: 0 0 30px rgba(0, 200, 255, 0.5);
             overflow: hidden;
             position: relative;
         }
@@ -138,8 +153,8 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: rgba(0,200,255,0.1);
-            border: 1px solid rgba(0,200,255,0.3);
+            background: rgba(0, 200, 255, 0.1);
+            border: 1px solid rgba(0, 200, 255, 0.3);
             border-radius: 50%;
             color: #00c8ff;
             text-decoration: none;
@@ -147,8 +162,8 @@
         }
 
         .social-links a:hover {
-            background: rgba(0,200,255,0.2);
-            box-shadow: 0 0 20px rgba(0,200,255,0.5);
+            background: rgba(0, 200, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.5);
             transform: scale(1.1);
         }
 
@@ -168,7 +183,7 @@
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,200,255,0.3);
+            box-shadow: 0 10px 20px rgba(0, 200, 255, 0.3);
         }
 
         .btn-success {
@@ -177,8 +192,8 @@
 
         /* Sezioni */
         .section {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
@@ -206,9 +221,9 @@
             align-items: center;
             gap: 15px;
             padding: 15px;
-            background: rgba(0,200,255,0.05);
+            background: rgba(0, 200, 255, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(0,200,255,0.2);
+            border: 1px solid rgba(0, 200, 255, 0.2);
         }
 
         .info-item i {
@@ -224,8 +239,8 @@
         }
 
         .skill-item {
-            background: rgba(0,200,255,0.05);
-            border: 1px solid rgba(0,200,255,0.2);
+            background: rgba(0, 200, 255, 0.05);
+            border: 1px solid rgba(0, 200, 255, 0.2);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -234,7 +249,7 @@
 
         .skill-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,200,255,0.2);
+            box-shadow: 0 10px 30px rgba(0, 200, 255, 0.2);
         }
 
         .progress-circle {
@@ -254,7 +269,7 @@
             position: absolute;
             width: 70px;
             height: 70px;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             border-radius: 50%;
         }
 
@@ -284,8 +299,8 @@
         .timeline-item {
             position: relative;
             margin-bottom: 30px;
-            background: rgba(0,200,255,0.05);
-            border: 1px solid rgba(0,200,255,0.2);
+            background: rgba(0, 200, 255, 0.05);
+            border: 1px solid rgba(0, 200, 255, 0.2);
             border-radius: 10px;
             padding: 20px;
             margin-left: 30px;
@@ -300,7 +315,7 @@
             height: 12px;
             background: #00c8ff;
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0,200,255,0.5);
+            box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
         }
 
         .timeline-item h3 {
@@ -321,8 +336,8 @@
 
         /* Contact form spaziale */
         .contact-form {
-            background: rgba(0,200,255,0.05);
-            border: 1px solid rgba(0,200,255,0.2);
+            background: rgba(0, 200, 255, 0.05);
+            border: 1px solid rgba(0, 200, 255, 0.2);
             border-radius: 15px;
             padding: 30px;
         }
@@ -334,8 +349,8 @@
         .form-control {
             width: 100%;
             padding: 15px;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid rgba(0,200,255,0.3);
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 200, 255, 0.3);
             border-radius: 8px;
             color: white;
             font-size: 1rem;
@@ -348,7 +363,7 @@
         .form-control:focus {
             outline: none;
             border-color: #00c8ff;
-            box-shadow: 0 0 10px rgba(0,200,255,0.3);
+            box-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
         }
 
         .form-row {
@@ -394,6 +409,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -405,392 +421,438 @@
         }
 
         @keyframes floating {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px);
             }
+
             50% {
                 transform: translateY(-10px);
             }
         }
     </style>
 </head>
+
 <body>
-<!-- Stelle animate -->
-<div class="stars" id="stars"></div>
+    <!-- Stelle animate -->
+    <div class="stars" id="stars"></div>
 
-<div class="container">
-    <!-- Header -->
-    <div class="header">
-        <div class="profile-section">
-            <div class="avatar floating">
-                <img src="images/1.png" alt="Federico Sgambelluri">
-            </div>
-            <div class="profile-info">
-                <h1>Federico Sgambelluri</h1>
-                <div class="subtitle">Studente di Informatica per il Management</div>
-                <p>Sviluppatore • Content Creator • Consigliere Comunale</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/federico-sgambelluri-768475230" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/federicosgambelluri" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linktr.ee/federico.sgambelluri.yt" target="_blank"><i class="fas fa-link"></i></a>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-section">
+                <div class="avatar floating">
+                    <img src="images/1.png" alt="Federico Sgambelluri">
                 </div>
-                <div style="margin-top: 20px;">
-                    <a href="Federico Sgambelluri - Curriculum Vitae.pdf" class="btn" target="_blank">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
-                    <a href="#contact" class="btn btn-success">
-                        <i class="fas fa-envelope"></i> Contattami
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chi Sono -->
-    <div class="section">
-        <h2><i class="fas fa-user-astronaut"></i> Chi Sono</h2>
-        <div class="info-grid">
-            <div>
-                <p>Sono Federico Sgambelluri, nato e cresciuto a Bologna e attualmente residente nel Comune di Calderara di Reno. Sono una persona creativa, organizzata e precisa, con una forte passione per l'informatica, la tecnologia e l'innovazione. Sono abile nel preparare e presentare contenuti al pubblico e mi piace relazionarmi con le persone.</p>
-
-                <p>Attualmente sono impegnato in diversi progetti accademici e personali che arricchiscono le mie competenze e conoscenze. Coltivo la mia crescita personale attraverso lo studio, l'apprendimento continuo e l'esplorazione di nuovi ambiti.</p>
-
-                <p>Nel tempo libero vado in palestra: mi piace curare anche la salute fisica e l'alimentazione, oltre che la mente. Amo la politica, la scrittura e sono una persona estremamente curiosa a cui piace apprendere qualsiasi cosa, con l'obiettivo di migliorarmi giorno dopo giorno.</p>
-
-                <p>Recentemente sono stato eletto consigliere comunale presso il Comune di Calderara di Reno, con delega ai progetti di Social Innovation per i giovani e alla promozione della cultura della cittadinanza attiva.</p>
-            </div>
-            <div>
-                <div class="info-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <div>
-                        <strong>Età:</strong> 22 anni
+                <div class="profile-info">
+                    <h1>Federico Sgambelluri</h1>
+                    <div class="subtitle">Studente di Direzione Aziendale</div>
+                    <p>Sviluppatore • Content Creator • Consigliere Comunale • Consigliere presso I.A.P. Srl</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/federico-sgambelluri-768475230" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/federicosgambelluri" target="_blank"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://linktr.ee/federico.sgambelluri.yt" target="_blank"><i
+                                class="fas fa-link"></i></a>
                     </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email:</strong> fedesgambe@icloud.com
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Telefono:</strong> (+39) 347.....41
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Indirizzo:</strong> 40012 Calderara di Reno (BO), Italia
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-globe"></i>
-                    <div>
-                        <strong>Lingue:</strong> Italiano (Nativo), Inglese (Avanzato), Francese (Base), Spagnolo (Base)
+                    <div style="margin-top: 20px;">
+                        <a href="Federico Sgambelluri - Curriculum Vitae.pdf" class="btn" target="_blank">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                        <a href="#contact" class="btn btn-success">
+                            <i class="fas fa-envelope"></i> Contattami
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Competenze -->
-    <div class="section">
-        <h2><i class="fas fa-rocket"></i> Competenze Professionali</h2>
-        <div class="skills-grid">
+        <!-- Chi Sono -->
+        <div class="section">
+            <h2><i class="fas fa-user-astronaut"></i> Chi Sono</h2>
+            <div class="info-grid">
+                <div>
+                    <p>Sono Federico Sgambelluri, nato e cresciuto a Bologna e attualmente residente nel Comune di
+                        Calderara di Reno. Sono una persona creativa, organizzata e precisa, con una forte passione per
+                        l'informatica, la tecnologia e l'innovazione. Sono abile nel preparare e presentare contenuti al
+                        pubblico e mi piace relazionarmi con le persone.</p>
 
-            <div class="skill-item">
-                <h3>Java</h3>
-                <p>Esperienza nello sviluppo di applicazioni back-end e OOP con framework Java.</p>
-            </div>
+                    <p>Attualmente sono impegnato in diversi progetti accademici e personali che arricchiscono le mie
+                        competenze e conoscenze. Coltivo la mia crescita personale attraverso lo studio, l'apprendimento
+                        continuo e l'esplorazione di nuovi ambiti.</p>
 
-            <div class="skill-item">
-                <h3>SQL & NoSQL</h3>
-                <p>Progettazione e gestione di database relazionali e non relazionali, con query avanzate.</p>
-            </div>
+                    <p>Nel tempo libero vado in palestra: mi piace curare anche la salute fisica e l'alimentazione,
+                        oltre che la mente. Amo la politica, la scrittura e sono una persona estremamente curiosa a cui
+                        piace apprendere qualsiasi cosa, con l'obiettivo di migliorarmi giorno dopo giorno.</p>
 
-            <div class="skill-item">
-                <h3>HTML/CSS/JavaScript</h3>
-                <p>Sviluppo front-end responsive e interattivo per web app moderne.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>PHP</h3>
-                <p>Creazione di siti dinamici e gestione della logica server-side.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Python</h3>
-                <p>Utilizzo per scripting, automazioni e tool personalizzati in ambito tecnico e data-driven.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Kotlin e Swift</h3>
-                <p>Sviluppo di applicazioni mobile native per Android e iOS.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Git e Github</h3>
-                <p>Conoscenza profonda dei software di versionamento.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Final Cut Pro X</h3>
-                <p>Competenze nel montaggio video, post-produzione ed effetti visivi professionali.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Adobe Creative Suite</h3>
-                <p>Proficienza in Photoshop, Illustrator e InDesign per grafica e design visivo.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>MatLab</h3>
-                <p>Applicato per simulazioni, calcoli numerici e analisi tecniche.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Microsoft 365</h3>
-                <p>Utilizzo professionale degli strumenti Office e piattaforme cloud collaborative.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Google Suite & Analytics</h3>
-                <p>Gestione di progetti, documenti e analisi dati con strumenti Google.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>TecDoc</h3>
-                <p>Esperienza nell’utilizzo della piattaforma TecDoc per cataloghi e ricambi auto.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>B2B Commerce</h3>
-                <p>Competenze nei processi e strumenti del commercio elettronico tra aziende.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Leadership</h3>
-                <p>Capacità di guida, coordinamento e motivazione dei team di lavoro.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Problem Solving</h3>
-                <p>Approccio efficace e strutturato per risolvere sfide tecniche e operative.</p>
-            </div>
-
-            <div class="skill-item">
-                <h3>Team Working</h3>
-                <p>Collaborazione attiva e costruttiva in ambienti professionali multidisciplinari.</p>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Esperienza Lavorativa -->
-    <div class="section">
-        <h2><i class="fas fa-briefcase"></i> Esperienza Lavorativa</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Content Creator</h3>
-                <div class="company">YouTube</div>
-                <div class="date">2017 - Presente</div>
-                <p>Canale YouTube con oltre 4000 iscritti con video a tema tecnologico e collaborazioni aziendali.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Consigliere Comunale</h3>
-                <div class="company">Comune di Calderara di Reno</div>
-                <div class="date">2024 - Attuale</div>
-                <p>Neoeletto Consigliere Comunale nella lista civica SiAMO Futuro con delega in progetti di Social Innovation per i giovani.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Tirocinante</h3>
-                <div class="company">STM spa</div>
-                <div class="date">Novembre 2024 - Marzo 2025</div>
-                <p>Tirocinio Universitario presso il gruppo STM, partecipazione al Progetto ERP e al Progetto ESG.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Tirocinante</h3>
-                <div class="company">I.A.P. International Automotive Parts srl</div>
-                <div class="date">2022</div>
-                <p>Marketing and Data Analysis, assistenza amministrazione e magazzino.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Programmatore GUI</h3>
-                <div class="company">SaveMeNow - Zaragoza, Spagna</div>
-                <div class="date">Maggio 2021 - Giugno 2021</div>
-                <p>Erasmus di 4 settimane. Programmazione back-end per start-up di comunicazione con i soccorsi.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Formazione -->
-    <div class="section">
-        <h2><i class="fas fa-graduation-cap"></i> Formazione</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Laurea Magistrale in Direzione Aziendale</h3>
-                <div class="company">Università di Bologna</div>
-                <div class="date">Settembre 2025 - Attuale</div>
-                <p>Attualmente iscritto al primo anno del corso di laurea.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Laurea Triennale in Informatica per il Management</h3>
-                <div class="company">Università di Bologna</div>
-                <div class="date">Settembre 2022 - Ottobre 2025</div>
-              <!--  <p>Laurea conseguita con valutazione: </p>-->
-            </div>
-            <div class="timeline-item">
-                <h3>Diploma di Scuola Superiore</h3>
-                <div class="company">IIS Belluzzi - Fioravanti</div>
-                <div class="date">Settembre 2017 - Giugno 2022</div>
-                <p>Diploma conseguito con valutazione: 100/110L</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Certificati -->
-    <div class="section">
-        <h2><i class="fas fa-certificate"></i> Certificati e Corsi</h2>
-        <div class="info-grid">
-            <div class="info-item">
-                <i class="fas fa-award"></i>
-                <div>Google Digital Training - Google (2019)</div>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-award"></i>
-                <div>Lean Digital Training - Unindustria Bologna (2019)</div>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-award"></i>
-                <div>MakersScuola - IIS Belluzzi - Fioravanti (2022)</div>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-award"></i>
-                <div>Rivoluzione Digitale nel B2B - Alibaba (2024)</div>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-award"></i>
-                <div>Corso Sicurezza sul lavoro - UniBO (2024)</div>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-award"></i>
-                <div>Certificato Inglese B2 - UniBO (2025)</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contatti -->
-    <div class="section" id="contact">
-        <h2><i class="fas fa-satellite"></i> Contatti</h2>
-        <div class="info-grid">
-            <div class="contact-form">
-                <h3>Invia un messaggio</h3>
-                <form action="mailto:fedesgambe@icloud.com" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="name" placeholder="Il tuo Nome" required>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="email" name="email" placeholder="La tua Email" required>
+                    <p>Recentemente sono stato eletto consigliere comunale presso il Comune di Calderara di Reno, con
+                        delega ai progetti di Social Innovation per i giovani e alla promozione della cultura della
+                        cittadinanza attiva.</p>
+                </div>
+                <div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <strong>Età:</strong> 23 anni
                         </div>
                     </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="message" rows="4" placeholder="Il tuo Messaggio" required></textarea>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong> fedesgambe@icloud.com
+                        </div>
                     </div>
-                    <button class="btn" type="submit">
-                        <i class="fas fa-paper-plane"></i> Invia Messaggio
-                    </button>
-                </form>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Telefono:</strong> (+39) 347.....41
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Indirizzo:</strong> 40012 Calderara di Reno (BO), Italia
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <strong>Lingue:</strong> Italiano (Nativo), Inglese (Avanzato), Francese (Base), Spagnolo
+                            (Base)
+                        </div>
+                    </div>
+                </div>
             </div>
-            <script>
-                function formatMailto(form) {
-                    const name = encodeURIComponent(form.name.value);
-                    const email = encodeURIComponent(form.email.value);
-                    const message = encodeURIComponent(form.message.value);
+        </div>
 
-                    const subject = `Messaggio da ${name} (Curriculum Vitae)`;
-                    const body = `Nome: ${name}%0AEmail: ${email}%0A%0AMessaggio:%0A${message}`;
+        <!-- Competenze -->
+        <div class="section">
+            <h2><i class="fas fa-rocket"></i> Competenze Professionali</h2>
+            <div class="skills-grid">
 
-                    window.location.href = `mailto:fedesgambe@icloud.com?subject=${subject}&body=${body}`;
-                }
-            </script>
-            <div>
-                <h3>Informazioni di Contatto</h3>
+                <div class="skill-item">
+                    <h3>Java</h3>
+                    <p>Esperienza nello sviluppo di applicazioni back-end e OOP con framework Java.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>SQL & NoSQL</h3>
+                    <p>Progettazione e gestione di database relazionali e non relazionali, con query avanzate.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>HTML/CSS/JavaScript</h3>
+                    <p>Sviluppo front-end responsive e interattivo per web app moderne.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>PHP</h3>
+                    <p>Creazione di siti dinamici e gestione della logica server-side.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Python</h3>
+                    <p>Utilizzo per scripting, automazioni e tool personalizzati in ambito tecnico e data-driven.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Kotlin e Swift</h3>
+                    <p>Sviluppo di applicazioni mobile native per Android e iOS.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Git e Github</h3>
+                    <p>Conoscenza profonda dei software di versionamento.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Final Cut Pro X</h3>
+                    <p>Competenze nel montaggio video, post-produzione ed effetti visivi professionali.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Adobe Creative Suite</h3>
+                    <p>Proficienza in Photoshop, Illustrator e InDesign per grafica e design visivo.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>MatLab</h3>
+                    <p>Applicato per simulazioni, calcoli numerici e analisi tecniche.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Microsoft 365</h3>
+                    <p>Utilizzo professionale degli strumenti Office e piattaforme cloud collaborative.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Google Suite & Analytics</h3>
+                    <p>Gestione di progetti, documenti e analisi dati con strumenti Google.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>TecDoc</h3>
+                    <p>Esperienza nell’utilizzo della piattaforma TecDoc per cataloghi e ricambi auto.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>B2B Commerce</h3>
+                    <p>Competenze nei processi e strumenti del commercio elettronico tra aziende.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Leadership</h3>
+                    <p>Capacità di guida, coordinamento e motivazione dei team di lavoro.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Problem Solving</h3>
+                    <p>Approccio efficace e strutturato per risolvere sfide tecniche e operative.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h3>Team Working</h3>
+                    <p>Collaborazione attiva e costruttiva in ambienti professionali multidisciplinari.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Esperienza Lavorativa -->
+        <div class="section">
+            <h2><i class="fas fa-briefcase"></i> Esperienza Lavorativa</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Consigliere </h3>
+                    <div class="company">I.A.P. International Automotive Parts srl</div>
+                    <div class="date">2026 - Presente</div>
+                    <p>Membro del consiglio di amministrazione
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <h3>Consigliere dell'Unione dei Comuni</h3>
+                    <div class="company">Unione dei Comuni Terre d'Acqua</div>
+                    <div class="date">2026 - Attuale</div>
+                    <p>Membro del Consiglio dell’Unione dei Comuni Terre d’Acqua, ente sovracomunale che coordina
+                        servizi e politiche condivise tra i comuni del territorio.</p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <h3>Consigliere Comunale</h3>
+                    <div class="company">Comune di Calderara di Reno</div>
+                    <div class="date">2024 - Attuale</div>
+                    <p>Neoeletto Consigliere Comunale nella lista civica SiAMO Futuro con delega in progetti di Social
+                        Innovation per i giovani.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Tirocinante</h3>
+                    <div class="company">STM spa</div>
+                    <div class="date">Novembre 2024 - Marzo 2025</div>
+                    <p>Tirocinio Universitario presso il gruppo STM, partecipazione al Progetto ERP e al Progetto ESG.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Tirocinante</h3>
+                    <div class="company">I.A.P. International Automotive Parts srl</div>
+                    <div class="date">2022</div>
+                    <p>Marketing and Data Analysis, assistenza amministrazione e magazzino.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Programmatore GUI</h3>
+                    <div class="company">SaveMeNow - Zaragoza, Spagna</div>
+                    <div class="date">Maggio 2021 - Giugno 2021</div>
+                    <p>Erasmus di 4 settimane. Programmazione back-end per start-up di comunicazione con i soccorsi.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Content Creator</h3>
+                    <div class="company">YouTube</div>
+                    <div class="date">2017 - 2024</div>
+                    <p>Canale YouTube con oltre 4900 iscritti con video a tema tecnologico e collaborazioni aziendali.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formazione -->
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Formazione</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Laurea Magistrale in Direzione Aziendale</h3>
+                    <div class="company">Università di Bologna</div>
+                    <div class="date">Settembre 2025 - Attuale</div>
+                    <p>Attualmente iscritto al primo anno del corso di laurea.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Laurea Triennale in Informatica per il Management</h3>
+                    <div class="company">Università di Bologna</div>
+                    <div class="date">Settembre 2022 - Ottobre 2025</div>
+                    <p>Laurea conseguita con valutazione: 103/110L </p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Diploma di Scuola Superiore</h3>
+                    <div class="company">IIS Belluzzi - Fioravanti</div>
+                    <div class="date">Settembre 2017 - Giugno 2022</div>
+                    <p>Diploma conseguito con valutazione: 100/100L</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificati -->
+        <div class="section">
+            <h2><i class="fas fa-certificate"></i> Certificati e Corsi</h2>
+            <div class="info-grid">
                 <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>40012 Calderara di Reno (BO), Italia</div>
+                    <i class="fas fa-award"></i>
+                    <div>Google Digital Training - Google (2019)</div>
                 </div>
                 <div class="info-item">
-                    <i class="fas fa-phone"></i>
-                    <div>(+39) 347.....41</div>
+                    <i class="fas fa-award"></i>
+                    <div>Lean Digital Training - Unindustria Bologna (2019)</div>
                 </div>
                 <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>fedesgambe@icloud.com</div>
+                    <i class="fas fa-award"></i>
+                    <div>MakersScuola - IIS Belluzzi - Fioravanti (2022)</div>
                 </div>
-                <div class="social-links" style="margin-top: 20px;">
-                    <a href="https://www.linkedin.com/in/federico-sgambelluri-768475230" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/federicosgambelluri" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linktr.ee/federico.sgambelluri.yt" target="_blank"><i class="fas fa-link"></i></a>
+                <div class="info-item">
+                    <i class="fas fa-award"></i>
+                    <div>Rivoluzione Digitale nel B2B - Alibaba (2024)</div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-award"></i>
+                    <div>Corso Sicurezza sul lavoro - UniBO (2024)</div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-award"></i>
+                    <div>Certificato Inglese B2 - UniBO (2025)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contatti -->
+        <div class="section" id="contact">
+            <h2><i class="fas fa-satellite"></i> Contatti</h2>
+            <div class="info-grid">
+                <div class="contact-form">
+                    <h3>Invia un messaggio</h3>
+                    <form action="mailto:fedesgambe@icloud.com" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="name" placeholder="Il tuo Nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="email" name="email" placeholder="La tua Email"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="4" placeholder="Il tuo Messaggio"
+                                required></textarea>
+                        </div>
+                        <button class="btn" type="submit">
+                            <i class="fas fa-paper-plane"></i> Invia Messaggio
+                        </button>
+                    </form>
+                </div>
+                <script>
+                    function formatMailto(form) {
+                        const name = encodeURIComponent(form.name.value);
+                        const email = encodeURIComponent(form.email.value);
+                        const message = encodeURIComponent(form.message.value);
+
+                        const subject = `Messaggio da ${name} (Curriculum Vitae)`;
+                        const body = `Nome: ${name}%0AEmail: ${email}%0A%0AMessaggio:%0A${message}`;
+
+                        window.location.href = `mailto:fedesgambe@icloud.com?subject=${subject}&body=${body}`;
+                    }
+                </script>
+                <div>
+                    <h3>Informazioni di Contatto</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>40012 Calderara di Reno (BO), Italia</div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>(+39) 347.....41</div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>fedesgambe@icloud.com</div>
+                    </div>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="https://www.linkedin.com/in/federico-sgambelluri-768475230" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/federicosgambelluri" target="_blank"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://linktr.ee/federico.sgambelluri.yt" target="_blank"><i
+                                class="fas fa-link"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    // Generazione stelle animate
-    function createStars() {
-        const starsContainer = document.getElementById('stars');
-        const numberOfStars = 100;
+    <script>
+        // Generazione stelle animate
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
 
-        for (let i = 0; i < numberOfStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            starsContainer.appendChild(star);
-        }
-    }
-
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
             }
-        });
-    });
+        }
 
-    // Animazione al caricamento
-    window.addEventListener('load', function() {
-        createStars();
-
-        // Animazione sezioni
-        const sections = document.querySelectorAll('.section');
-        sections.forEach((section, index) => {
-            section.style.animationDelay = (index * 0.1) + 's';
-        });
-    });
-
-    // Effetto hover sulle skill
-    document.querySelectorAll('.skill-item').forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.05)';
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
 
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+        // Animazione al caricamento
+        window.addEventListener('load', function () {
+            createStars();
+
+            // Animazione sezioni
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.animationDelay = (index * 0.1) + 's';
+            });
         });
-    });
-</script>
+
+        // Effetto hover sulle skill
+        document.querySelectorAll('.skill-item').forEach(item => {
+            item.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px) scale(1.05)';
+            });
+
+            item.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
+
 </html>
