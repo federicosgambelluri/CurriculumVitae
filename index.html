@@ -8,16 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Exo 2', sans-serif;
@@ -27,419 +21,149 @@
             overflow-x: hidden;
         }
 
-        /* Animazioni di sfondo spaziale */
-        .stars {
+        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 3s infinite; }
+        @keyframes twinkle { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; position: relative; z-index: 2; }
+
+        /* ── LANGUAGE SWITCH ── */
+        .lang-switch {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(0,200,255,0.4);
+            border-radius: 30px;
+            padding: 6px 8px;
+            gap: 6px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0,200,255,0.2);
         }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 22px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: #888;
         }
-
-        @keyframes twinkle {
-
-            0%,
-            100% {
-                opacity: 0.3;
-            }
-
-            50% {
-                opacity: 1;
-            }
+        .lang-btn.active {
+            background: linear-gradient(45deg, #00c8ff, #0080ff);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0,200,255,0.4);
         }
+        .lang-btn:not(.active):hover { color: #00c8ff; }
+        .lang-btn .flag { font-size: 1.1rem; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Header spaziale */
+        /* ── HEADER ── */
         .header {
-            background: linear-gradient(135deg, rgba(0, 100, 255, 0.1), rgba(100, 0, 255, 0.1));
-            border: 1px solid rgba(0, 200, 255, 0.3);
+            background: linear-gradient(135deg, rgba(0,100,255,0.1), rgba(100,0,255,0.1));
+            border: 1px solid rgba(0,200,255,0.3);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 40px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 50px rgba(0, 200, 255, 0.2);
+            box-shadow: 0 0 50px rgba(0,200,255,0.2);
             position: relative;
             overflow: hidden;
         }
-
         .header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 200, 255, 0.1), transparent);
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0,200,255,0.1), transparent);
             animation: rotate 20s linear infinite;
         }
+        @keyframes rotate { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
 
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
+        .profile-section { display: flex; align-items: center; gap: 40px; position: relative; z-index: 2; }
+        .avatar { width: 200px; height: 200px; border-radius: 50%; border: 3px solid #00c8ff; box-shadow: 0 0 30px rgba(0,200,255,0.5); overflow: hidden; position: relative; flex-shrink: 0; }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-info h1 { font-family: 'Orbitron', monospace; font-size: 3rem; font-weight: 900; background: linear-gradient(45deg, #00c8ff, #0080ff, #6600ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+        .profile-info .subtitle { font-size: 1.2rem; color: #00c8ff; margin-bottom: 10px; font-weight: 500; }
+        .profile-info .tagline { font-size: 0.95rem; color: #aaa; }
 
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: rgba(0,200,255,0.1); border: 1px solid rgba(0,200,255,0.3); border-radius: 50%; color: #00c8ff; text-decoration: none; transition: all 0.3s ease; }
+        .social-links a:hover { background: rgba(0,200,255,0.2); box-shadow: 0 0 20px rgba(0,200,255,0.5); transform: scale(1.1); }
 
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-        }
+        .btn { display: inline-block; padding: 12px 30px; background: linear-gradient(45deg, #00c8ff, #0080ff); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer; margin: 5px; font-family: 'Exo 2', sans-serif; font-size: 0.9rem; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,200,255,0.3); }
+        .btn-success { background: linear-gradient(45deg, #00ff88, #00cc66); }
 
-        .avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 3px solid #00c8ff;
-            box-shadow: 0 0 30px rgba(0, 200, 255, 0.5);
-            overflow: hidden;
-            position: relative;
-        }
+        /* ── SECTIONS ── */
+        .section { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); animation: fadeInUp 0.6s ease; }
+        .section h2 { font-family: 'Orbitron', monospace; font-size: 2rem; color: #00c8ff; margin-bottom: 20px; text-align: center; }
+        @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
 
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+        .info-item { display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(0,200,255,0.05); border-radius: 10px; border: 1px solid rgba(0,200,255,0.2); margin-bottom: 10px; }
+        .info-item i { color: #00c8ff; font-size: 1.2rem; flex-shrink: 0; }
 
-        .profile-info h1 {
-            font-family: 'Orbitron', monospace;
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #00c8ff, #0080ff, #6600ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .skill-item { background: rgba(0,200,255,0.05); border: 1px solid rgba(0,200,255,0.2); border-radius: 10px; padding: 20px; text-align: center; transition: all 0.3s ease; }
+        .skill-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,200,255,0.2); }
+        .skill-item h3 { color: #00c8ff; margin-bottom: 8px; }
 
-        .profile-info .subtitle {
-            font-size: 1.2rem;
-            color: #00c8ff;
-            margin-bottom: 20px;
-        }
+        /* ── TIMELINE ── */
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #00c8ff, #0080ff, #6600ff); }
+        .timeline-item { position: relative; margin-bottom: 30px; background: rgba(0,200,255,0.05); border: 1px solid rgba(0,200,255,0.2); border-radius: 10px; padding: 20px; margin-left: 30px; }
+        .timeline-item::before { content: ''; position: absolute; left: -45px; top: 25px; width: 12px; height: 12px; background: #00c8ff; border-radius: 50%; box-shadow: 0 0 10px rgba(0,200,255,0.5); }
+        .timeline-item h3 { color: #00c8ff; margin-bottom: 5px; }
+        .timeline-item .date { color: #888; font-size: 0.9rem; margin-bottom: 10px; }
+        .timeline-item .company { color: #00ff88; font-weight: 600; margin-bottom: 5px; }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
+        /* ── CONTACT ── */
+        .contact-form { background: rgba(0,200,255,0.05); border: 1px solid rgba(0,200,255,0.2); border-radius: 15px; padding: 30px; }
+        .form-group { margin-bottom: 20px; }
+        .form-control { width: 100%; padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,200,255,0.3); border-radius: 8px; color: white; font-size: 1rem; font-family: 'Exo 2', sans-serif; }
+        .form-control::placeholder { color: #888; }
+        .form-control:focus { outline: none; border-color: #00c8ff; box-shadow: 0 0 10px rgba(0,200,255,0.3); }
+        .form-row { display: flex; gap: 15px; }
+        .form-row .form-group { flex: 1; }
 
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 200, 255, 0.1);
-            border: 1px solid rgba(0, 200, 255, 0.3);
-            border-radius: 50%;
-            color: #00c8ff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-10px)} }
 
-        .social-links a:hover {
-            background: rgba(0, 200, 255, 0.2);
-            box-shadow: 0 0 20px rgba(0, 200, 255, 0.5);
-            transform: scale(1.1);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, #00c8ff, #0080ff);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            margin: 5px;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 200, 255, 0.3);
-        }
-
-        .btn-success {
-            background: linear-gradient(45deg, #00ff88, #00cc66);
-        }
-
-        /* Sezioni */
-        .section {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        .section h2 {
-            font-family: 'Orbitron', monospace;
-            font-size: 2rem;
-            color: #00c8ff;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(0, 200, 255, 0.05);
-            border-radius: 10px;
-            border: 1px solid rgba(0, 200, 255, 0.2);
-        }
-
-        .info-item i {
-            color: #00c8ff;
-            font-size: 1.2rem;
-        }
-
-        /* Skills con animazioni */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-item {
-            background: rgba(0, 200, 255, 0.05);
-            border: 1px solid rgba(0, 200, 255, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 200, 255, 0.2);
-        }
-
-        .progress-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            position: relative;
-            background: conic-gradient(from 0deg, #00c8ff 0deg, #0080ff 120deg, #6600ff 240deg, #00c8ff 360deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .progress-circle::before {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 50%;
-        }
-
-        .progress-circle span {
-            position: relative;
-            z-index: 1;
-            font-weight: bold;
-            color: #00c8ff;
-        }
-
-        /* Timeline spaziale */
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #00c8ff, #0080ff, #6600ff);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-            background: rgba(0, 200, 255, 0.05);
-            border: 1px solid rgba(0, 200, 255, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            margin-left: 30px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -45px;
-            top: 25px;
-            width: 12px;
-            height: 12px;
-            background: #00c8ff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
-        }
-
-        .timeline-item h3 {
-            color: #00c8ff;
-            margin-bottom: 5px;
-        }
-
-        .timeline-item .date {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .timeline-item .company {
-            color: #00ff88;
-            font-weight: 600;
-        }
-
-        /* Contact form spaziale */
-        .contact-form {
-            background: rgba(0, 200, 255, 0.05);
-            border: 1px solid rgba(0, 200, 255, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(0, 200, 255, 0.3);
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .form-control::placeholder {
-            color: #888;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: #00c8ff;
-            box-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
-        }
-
-        .form-row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .profile-info h1 {
-                font-size: 2rem;
-            }
-
-            .form-row {
-                flex-direction: column;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-        }
-
-        /* Animazioni aggiuntive */
-        .section {
-            animation: fadeInUp 0.6s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+            .profile-section { flex-direction: column; text-align: center; }
+            .profile-info h1 { font-size: 2rem; }
+            .form-row { flex-direction: column; }
+            .info-grid { grid-template-columns: 1fr; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 
 <body>
-    <!-- Stelle animate -->
     <div class="stars" id="stars"></div>
 
+    <!-- ── LANGUAGE SWITCH ── -->
+    <div class="lang-switch">
+        <button class="lang-btn active" id="btn-it" onclick="setLang('it')">
+            <span class="flag">🇮🇹</span> IT
+        </button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">
+            <span class="flag">🇬🇧</span> EN
+        </button>
+    </div>
+
     <div class="container">
-        <!-- Header -->
+
+        <!-- ── HEADER ── -->
         <div class="header">
             <div class="profile-section">
                 <div class="avatar floating">
@@ -447,415 +171,282 @@
                 </div>
                 <div class="profile-info">
                     <h1>Federico Sgambelluri</h1>
-                    <div class="subtitle">Studente di Direzione Aziendale</div>
-                    <p>Sviluppatore • Content Creator • Consigliere Comunale • Consigliere presso I.A.P. Srl</p>
+                    <div class="subtitle" data-it="Studente di Direzione Aziendale" data-en="Business Administration Student"></div>
+                    <p class="tagline" data-it="Sviluppatore • Content Creator • Consigliere Comunale • Consigliere presso I.A.P. Srl"
+                                       data-en="Developer • Content Creator • Municipal Councillor • Board Advisor at I.A.P. Srl"></p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/federico-sgambelluri-768475230" target="_blank"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/federicosgambelluri" target="_blank"><i
-                                class="fab fa-github"></i></a>
-                        <a href="https://linktr.ee/federico.sgambelluri.yt" target="_blank"><i
-                                class="fas fa-link"></i></a>
+                        <a href="https://www.linkedin.com/in/federico-sgambelluri-768475230" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/federicosgambelluri" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linktr.ee/federico.sgambelluri.yt" target="_blank"><i class="fas fa-link"></i></a>
                     </div>
                     <div style="margin-top: 20px;">
                         <a href="Federico Sgambelluri - Curriculum Vitae.pdf" class="btn" target="_blank">
-                            <i class="fas fa-download"></i> Download CV
-                        </a>
-                        <a href="Federico Sgambelluri - Curriculum Vitae - EN.pdf" class="btn" target="_blank">
-                            <i class="fas fa-download"></i> Download CV - English
+                            <i class="fas fa-download"></i> <span data-it="Download CV" data-en="Download CV"></span>
                         </a>
                         <a href="#contact" class="btn btn-success">
-                            <i class="fas fa-envelope"></i> Contattami
+                            <i class="fas fa-envelope"></i> <span data-it="Contattami" data-en="Contact Me"></span>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Chi Sono -->
+        <!-- ── CHI SONO / ABOUT ME ── -->
         <div class="section">
-            <h2><i class="fas fa-user-astronaut"></i> Chi Sono</h2>
+            <h2><i class="fas fa-user-astronaut"></i> <span data-it="Chi Sono" data-en="About Me"></span></h2>
             <div class="info-grid">
                 <div>
-                    <p>Sono Federico Sgambelluri, nato e cresciuto a Bologna e attualmente residente nel Comune di
-                        Calderara di Reno. Sono una persona creativa, organizzata e precisa, con una forte passione per
-                        l'informatica, la tecnologia e l'innovazione. Sono abile nel preparare e presentare contenuti al
-                        pubblico e mi piace relazionarmi con le persone.</p>
-
-                    <p>Attualmente sono impegnato in diversi progetti accademici e personali che arricchiscono le mie
-                        competenze e conoscenze. Coltivo la mia crescita personale attraverso lo studio, l'apprendimento
-                        continuo e l'esplorazione di nuovi ambiti.</p>
-
-                    <p>Nel tempo libero vado in palestra: mi piace curare anche la salute fisica e l'alimentazione,
-                        oltre che la mente. Amo la politica, la scrittura e sono una persona estremamente curiosa a cui
-                        piace apprendere qualsiasi cosa, con l'obiettivo di migliorarmi giorno dopo giorno.</p>
-
-                    <p>Recentemente sono stato eletto consigliere comunale presso il Comune di Calderara di Reno, con
-                        delega ai progetti di Social Innovation per i giovani e alla promozione della cultura della
-                        cittadinanza attiva.</p>
+                    <p data-it="Sono Federico Sgambelluri, nato e cresciuto a Bologna e attualmente residente nel Comune di Calderara di Reno. Sono una persona creativa, organizzata e precisa, con una forte passione per l'informatica, la tecnologia e l'innovazione. Sono abile nel preparare e presentare contenuti al pubblico e mi piace relazionarmi con le persone."
+                       data-en="I am Federico Sgambelluri, born and raised in Bologna and currently residing in the municipality of Calderara di Reno. I am a creative, organised and detail-oriented person with a strong passion for computer science, technology and innovation. I am skilled at preparing and presenting content to audiences, and I enjoy building relationships with people."></p>
+                    <br>
+                    <p data-it="Attualmente sono impegnato in diversi progetti accademici e personali che arricchiscono le mie competenze e conoscenze. Coltivo la mia crescita personale attraverso lo studio, l'apprendimento continuo e l'esplorazione di nuovi ambiti."
+                       data-en="I am currently involved in several academic and personal projects that enrich my skills and knowledge. I pursue personal growth through study, continuous learning and the exploration of new fields."></p>
+                    <br>
+                    <p data-it="Nel tempo libero vado in palestra: mi piace curare anche la salute fisica e l'alimentazione, oltre che la mente. Amo la politica, la scrittura e sono una persona estremamente curiosa a cui piace apprendere qualsiasi cosa, con l'obiettivo di migliorarmi giorno dopo giorno."
+                       data-en="In my free time I go to the gym: I enjoy taking care of my physical health and nutrition, as well as my mind. I am passionate about politics and writing, and I am an extremely curious person who loves learning about anything, with the goal of improving myself day by day."></p>
+                    <br>
+                    <p data-it="Recentemente sono stato eletto consigliere comunale presso il Comune di Calderara di Reno, con delega ai progetti di Social Innovation per i giovani e alla promozione della cultura della cittadinanza attiva."
+                       data-en="I was recently elected as a Municipal Councillor in Calderara di Reno, with a mandate focused on Social Innovation projects for young people and the promotion of active citizenship."></p>
                 </div>
                 <div>
-                    <div class="info-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <div>
-                            <strong>Età:</strong> 23 anni
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>Email:</strong> fedesgambe@icloud.com
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>Telefono:</strong> (+39) 347.....41
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Indirizzo:</strong> 40012 Calderara di Reno (BO), Italia
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-globe"></i>
-                        <div>
-                            <strong>Lingue:</strong> Italiano (Nativo), Inglese (Avanzato), Francese (Base), Spagnolo
-                            (Base)
-                        </div>
-                    </div>
+                    <div class="info-item"><i class="fas fa-calendar-alt"></i><div><strong data-it="Età:" data-en="Age:"></strong> <span data-it="23 anni" data-en="23"></span></div></div>
+                    <div class="info-item"><i class="fas fa-envelope"></i><div><strong>Email:</strong> fedesgambe@icloud.com</div></div>
+                    <div class="info-item"><i class="fas fa-phone"></i><div><strong data-it="Telefono:" data-en="Phone:"></strong> (+39) 347.....41</div></div>
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><strong data-it="Indirizzo:" data-en="Address:"></strong> <span data-it="40012 Calderara di Reno (BO), Italia" data-en="40012 Calderara di Reno (BO), Italy"></span></div></div>
+                    <div class="info-item"><i class="fas fa-globe"></i><div><strong data-it="Lingue:" data-en="Languages:"></strong> <span data-it="Italiano (Nativo), Inglese (Avanzato), Francese (Base), Spagnolo (Base)" data-en="Italian (Native), English (Advanced), French (Basic), Spanish (Basic)"></span></div></div>
                 </div>
             </div>
         </div>
 
-        <!-- Competenze -->
+        <!-- ── COMPETENZE / SKILLS ── -->
         <div class="section">
-            <h2><i class="fas fa-rocket"></i> Competenze Professionali</h2>
+            <h2><i class="fas fa-rocket"></i> <span data-it="Competenze Professionali" data-en="Professional Skills"></span></h2>
             <div class="skills-grid">
-
-                <div class="skill-item">
-                    <h3>Java</h3>
-                    <p>Esperienza nello sviluppo di applicazioni back-end e OOP con framework Java.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>SQL & NoSQL</h3>
-                    <p>Progettazione e gestione di database relazionali e non relazionali, con query avanzate.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>HTML/CSS/JavaScript</h3>
-                    <p>Sviluppo front-end responsive e interattivo per web app moderne.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>PHP</h3>
-                    <p>Creazione di siti dinamici e gestione della logica server-side.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Python</h3>
-                    <p>Utilizzo per scripting, automazioni e tool personalizzati in ambito tecnico e data-driven.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Kotlin e Swift</h3>
-                    <p>Sviluppo di applicazioni mobile native per Android e iOS.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Git e Github</h3>
-                    <p>Conoscenza profonda dei software di versionamento.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Final Cut Pro X</h3>
-                    <p>Competenze nel montaggio video, post-produzione ed effetti visivi professionali.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Adobe Creative Suite</h3>
-                    <p>Proficienza in Photoshop, Illustrator e InDesign per grafica e design visivo.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>MatLab</h3>
-                    <p>Applicato per simulazioni, calcoli numerici e analisi tecniche.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Microsoft 365</h3>
-                    <p>Utilizzo professionale degli strumenti Office e piattaforme cloud collaborative.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Google Suite & Analytics</h3>
-                    <p>Gestione di progetti, documenti e analisi dati con strumenti Google.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>TecDoc</h3>
-                    <p>Esperienza nell’utilizzo della piattaforma TecDoc per cataloghi e ricambi auto.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>B2B Commerce</h3>
-                    <p>Competenze nei processi e strumenti del commercio elettronico tra aziende.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Leadership</h3>
-                    <p>Capacità di guida, coordinamento e motivazione dei team di lavoro.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Problem Solving</h3>
-                    <p>Approccio efficace e strutturato per risolvere sfide tecniche e operative.</p>
-                </div>
-
-                <div class="skill-item">
-                    <h3>Team Working</h3>
-                    <p>Collaborazione attiva e costruttiva in ambienti professionali multidisciplinari.</p>
-                </div>
-
+                <div class="skill-item"><h3>Java</h3><p data-it="Esperienza nello sviluppo di applicazioni back-end e OOP con framework Java." data-en="Experience in back-end application development and OOP with Java frameworks."></p></div>
+                <div class="skill-item"><h3>SQL &amp; NoSQL</h3><p data-it="Progettazione e gestione di database relazionali e non relazionali, con query avanzate." data-en="Design and management of relational and non-relational databases, with advanced queries."></p></div>
+                <div class="skill-item"><h3>HTML/CSS/JavaScript</h3><p data-it="Sviluppo front-end responsive e interattivo per web app moderne." data-en="Responsive and interactive front-end development for modern web applications."></p></div>
+                <div class="skill-item"><h3>PHP</h3><p data-it="Creazione di siti dinamici e gestione della logica server-side." data-en="Dynamic website creation and server-side logic management."></p></div>
+                <div class="skill-item"><h3>Python</h3><p data-it="Utilizzo per scripting, automazioni e tool personalizzati in ambito tecnico e data-driven." data-en="Used for scripting, automation and custom tools in technical and data-driven contexts."></p></div>
+                <div class="skill-item"><h3>Kotlin &amp; Swift</h3><p data-it="Sviluppo di applicazioni mobile native per Android e iOS." data-en="Native mobile app development for Android and iOS."></p></div>
+                <div class="skill-item"><h3>Git &amp; GitHub</h3><p data-it="Conoscenza profonda dei software di versionamento." data-en="Thorough knowledge of version control software and collaborative workflows."></p></div>
+                <div class="skill-item"><h3>Final Cut Pro X</h3><p data-it="Competenze nel montaggio video, post-produzione ed effetti visivi professionali." data-en="Skills in professional video editing, post-production and visual effects."></p></div>
+                <div class="skill-item"><h3>Adobe Creative Suite</h3><p data-it="Proficienza in Photoshop, Illustrator e InDesign per grafica e design visivo." data-en="Proficiency in Photoshop, Illustrator and InDesign for graphics and visual design."></p></div>
+                <div class="skill-item"><h3>MatLab</h3><p data-it="Applicato per simulazioni, calcoli numerici e analisi tecniche." data-en="Applied for simulations, numerical calculations and technical analysis."></p></div>
+                <div class="skill-item"><h3>Microsoft 365</h3><p data-it="Utilizzo professionale degli strumenti Office e piattaforme cloud collaborative." data-en="Professional use of Office tools and collaborative cloud platforms."></p></div>
+                <div class="skill-item"><h3>Google Suite &amp; Analytics</h3><p data-it="Gestione di progetti, documenti e analisi dati con strumenti Google." data-en="Project and document management and data analysis with Google tools."></p></div>
+                <div class="skill-item"><h3>TecDoc</h3><p data-it="Esperienza nell'utilizzo della piattaforma TecDoc per cataloghi e ricambi auto." data-en="Experience using the TecDoc platform for automotive catalogues and spare parts."></p></div>
+                <div class="skill-item"><h3>B2B Commerce</h3><p data-it="Competenze nei processi e strumenti del commercio elettronico tra aziende." data-en="Skills in processes and tools for business-to-business e-commerce."></p></div>
+                <div class="skill-item"><h3>Leadership</h3><p data-it="Capacità di guida, coordinamento e motivazione dei team di lavoro." data-en="Ability to guide, coordinate and motivate work teams."></p></div>
+                <div class="skill-item"><h3>Problem Solving</h3><p data-it="Approccio efficace e strutturato per risolvere sfide tecniche e operative." data-en="Effective and structured approach to resolving technical and operational challenges."></p></div>
+                <div class="skill-item"><h3>Team Working</h3><p data-it="Collaborazione attiva e costruttiva in ambienti professionali multidisciplinari." data-en="Active and constructive collaboration in multidisciplinary professional environments."></p></div>
             </div>
         </div>
 
-        <!-- Esperienza Lavorativa -->
+        <!-- ── ESPERIENZA / WORK EXPERIENCE ── -->
         <div class="section">
-            <h2><i class="fas fa-briefcase"></i> Esperienza Lavorativa</h2>
+            <h2><i class="fas fa-briefcase"></i> <span data-it="Esperienza Lavorativa" data-en="Work Experience"></span></h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h3>Consigliere </h3>
-                    <div class="company">I.A.P. International Automotive Parts srl</div>
-                    <div class="date">2026 - Presente</div>
-                    <p>Membro del consiglio di amministrazione
-                    </p>
+                    <h3 data-it="Consigliere" data-en="Board Advisor"></h3>
+                    <div class="company">I.A.P. International Automotive Parts Srl</div>
+                    <div class="date" data-it="2026 - Presente" data-en="2026 – Present"></div>
+                    <p data-it="Membro del consiglio di amministrazione." data-en="Member of the Board of Directors."></p>
                 </div>
-
-
                 <div class="timeline-item">
-                    <h3>Consigliere dell'Unione dei Comuni</h3>
+                    <h3 data-it="Consigliere dell'Unione dei Comuni" data-en="Councillor – Municipal Union"></h3>
                     <div class="company">Unione dei Comuni Terre d'Acqua</div>
-                    <div class="date">2026 - Attuale</div>
-                    <p>Membro del Consiglio dell’Unione dei Comuni Terre d’Acqua, ente sovracomunale che coordina
-                        servizi e politiche condivise tra i comuni del territorio.</p>
+                    <div class="date" data-it="2026 - Attuale" data-en="2026 – Present"></div>
+                    <p data-it="Membro del Consiglio dell'Unione dei Comuni Terre d'Acqua, ente sovracomunale che coordina servizi e politiche condivise tra i comuni del territorio."
+                       data-en="Member of the Council of the inter-municipal body coordinating shared services and policies across the territory."></p>
                 </div>
-
-
                 <div class="timeline-item">
-                    <h3>Consigliere Comunale</h3>
+                    <h3 data-it="Consigliere Comunale" data-en="Municipal Councillor"></h3>
                     <div class="company">Comune di Calderara di Reno</div>
-                    <div class="date">2024 - Attuale</div>
-                    <p>Neoeletto Consigliere Comunale nella lista civica SiAMO Futuro con delega in progetti di Social
-                        Innovation per i giovani.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h3>Tirocinante</h3>
-                    <div class="company">STM spa</div>
-                    <div class="date">Novembre 2024 - Marzo 2025</div>
-                    <p>Tirocinio Universitario presso il gruppo STM, partecipazione al Progetto ERP e al Progetto ESG.
-                    </p>
+                    <div class="date" data-it="2024 - Attuale" data-en="2024 – Present"></div>
+                    <p data-it="Neoeletto Consigliere Comunale nella lista civica SiAMO Futuro con delega in progetti di Social Innovation per i giovani."
+                       data-en="Elected Councillor on the civic list SiAMO Futuro, with a mandate on Social Innovation projects for young people and the promotion of active citizenship."></p>
                 </div>
                 <div class="timeline-item">
-                    <h3>Tirocinante</h3>
-                    <div class="company">I.A.P. International Automotive Parts srl</div>
+                    <h3 data-it="Tirocinante" data-en="Intern"></h3>
+                    <div class="company">STM Spa</div>
+                    <div class="date" data-it="Novembre 2024 - Marzo 2025" data-en="November 2024 – March 2025"></div>
+                    <p data-it="Tirocinio Universitario presso il gruppo STM, partecipazione al Progetto ERP e al Progetto ESG."
+                       data-en="University internship within the STM Group; participated in the ERP Implementation Project and the ESG Reporting Project."></p>
+                </div>
+                <div class="timeline-item">
+                    <h3 data-it="Tirocinante" data-en="Intern"></h3>
+                    <div class="company">I.A.P. International Automotive Parts Srl</div>
                     <div class="date">2022</div>
-                    <p>Marketing and Data Analysis, assistenza amministrazione e magazzino.</p>
+                    <p data-it="Marketing and Data Analysis, assistenza amministrazione e magazzino."
+                       data-en="Marketing and Data Analysis; support to administration and warehouse operations."></p>
                 </div>
                 <div class="timeline-item">
-                    <h3>Programmatore GUI</h3>
-                    <div class="company">SaveMeNow - Zaragoza, Spagna</div>
-                    <div class="date">Maggio 2021 - Giugno 2021</div>
-                    <p>Erasmus di 4 settimane. Programmazione back-end per start-up di comunicazione con i soccorsi.</p>
+                    <h3 data-it="Programmatore GUI" data-en="GUI Programmer"></h3>
+                    <div class="company" data-it="SaveMeNow - Zaragoza, Spagna" data-en="SaveMeNow – Zaragoza, Spain"></div>
+                    <div class="date" data-it="Maggio 2021 - Giugno 2021" data-en="May 2021 – June 2021"></div>
+                    <p data-it="Erasmus di 4 settimane. Programmazione back-end per start-up di comunicazione con i soccorsi."
+                       data-en="4-week Erasmus experience. Back-end programming for an emergency-communication start-up."></p>
                 </div>
-
                 <div class="timeline-item">
                     <h3>Content Creator</h3>
                     <div class="company">YouTube</div>
-                    <div class="date">2017 - 2024</div>
-                    <p>Canale YouTube con oltre 4900 iscritti con video a tema tecnologico e collaborazioni aziendali.
-                    </p>
+                    <div class="date">2017 – 2024</div>
+                    <p data-it="Canale YouTube con oltre 4900 iscritti con video a tema tecnologico e collaborazioni aziendali."
+                       data-en="Technology-focused YouTube channel with over 4,900 subscribers; corporate collaborations and sponsored content."></p>
                 </div>
             </div>
         </div>
 
-        <!-- Formazione -->
+        <!-- ── FORMAZIONE / EDUCATION ── -->
         <div class="section">
-            <h2><i class="fas fa-graduation-cap"></i> Formazione</h2>
+            <h2><i class="fas fa-graduation-cap"></i> <span data-it="Formazione" data-en="Education"></span></h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h3>Laurea Magistrale in Direzione Aziendale</h3>
+                    <h3 data-it="Laurea Magistrale in Direzione Aziendale" data-en="Master's Degree in Business Administration"></h3>
                     <div class="company">Università di Bologna</div>
-                    <div class="date">Settembre 2025 - Attuale</div>
-                    <p>Attualmente iscritto al primo anno del corso di laurea.</p>
+                    <div class="date" data-it="Settembre 2025 - Attuale" data-en="September 2025 – Present"></div>
+                    <p data-it="Attualmente iscritto al primo anno del corso di laurea." data-en="Currently enrolled in the first year of the programme."></p>
                 </div>
                 <div class="timeline-item">
-                    <h3>Laurea Triennale in Informatica per il Management</h3>
+                    <h3 data-it="Laurea Triennale in Informatica per il Management" data-en="Bachelor's Degree in Computer Science for Management"></h3>
                     <div class="company">Università di Bologna</div>
-                    <div class="date">Settembre 2022 - Ottobre 2025</div>
-                    <p>Laurea conseguita con valutazione: 103/110L </p>
+                    <div class="date" data-it="Settembre 2022 - Ottobre 2025" data-en="September 2022 – October 2025"></div>
+                    <p data-it="Laurea conseguita con valutazione: 103/110L" data-en="Final grade: 103/110L"></p>
                 </div>
                 <div class="timeline-item">
-                    <h3>Diploma di Scuola Superiore</h3>
-                    <div class="company">IIS Belluzzi - Fioravanti</div>
-                    <div class="date">Settembre 2017 - Giugno 2022</div>
-                    <p>Diploma conseguito con valutazione: 100/100L</p>
+                    <h3 data-it="Diploma di Scuola Superiore" data-en="Upper Secondary School Diploma"></h3>
+                    <div class="company">IIS Belluzzi – Fioravanti</div>
+                    <div class="date" data-it="Settembre 2017 - Giugno 2022" data-en="September 2017 – June 2022"></div>
+                    <p data-it="Diploma conseguito con valutazione: 100/100L" data-en="Final grade: 100/100L"></p>
                 </div>
             </div>
         </div>
 
-        <!-- Certificati -->
+        <!-- ── CERTIFICATI / CERTIFICATES ── -->
         <div class="section">
-            <h2><i class="fas fa-certificate"></i> Certificati e Corsi</h2>
+            <h2><i class="fas fa-certificate"></i> <span data-it="Certificati e Corsi" data-en="Certificates &amp; Courses"></span></h2>
             <div class="info-grid">
-                <div class="info-item">
-                    <i class="fas fa-award"></i>
-                    <div>Google Digital Training - Google (2019)</div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-award"></i>
-                    <div>Lean Digital Training - Unindustria Bologna (2019)</div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-award"></i>
-                    <div>MakersScuola - IIS Belluzzi - Fioravanti (2022)</div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-award"></i>
-                    <div>Rivoluzione Digitale nel B2B - Alibaba (2024)</div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-award"></i>
-                    <div>Corso Sicurezza sul lavoro - UniBO (2024)</div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-award"></i>
-                    <div>Certificato Inglese B2 - UniBO (2025)</div>
-                </div>
+                <div class="info-item"><i class="fas fa-award"></i><div>Google Digital Training – Google (2019)</div></div>
+                <div class="info-item"><i class="fas fa-award"></i><div>Lean Digital Training – Unindustria Bologna (2019)</div></div>
+                <div class="info-item"><i class="fas fa-award"></i><div>MakersScuola – IIS Belluzzi – Fioravanti (2022)</div></div>
+                <div class="info-item"><i class="fas fa-award"></i><div><span data-it="Rivoluzione Digitale nel B2B" data-en="Digital Revolution in B2B"></span> – Alibaba (2024)</div></div>
+                <div class="info-item"><i class="fas fa-award"></i><div><span data-it="Corso Sicurezza sul lavoro" data-en="Workplace Safety Course"></span> – UniBO (2024)</div></div>
+                <div class="info-item"><i class="fas fa-award"></i><div><span data-it="Certificato Inglese B2" data-en="English B2 Certificate"></span> – UniBO (2025)</div></div>
             </div>
         </div>
 
-        <!-- Contatti -->
+        <!-- ── CONTATTI / CONTACT ── -->
         <div class="section" id="contact">
-            <h2><i class="fas fa-satellite"></i> Contatti</h2>
+            <h2><i class="fas fa-satellite"></i> <span data-it="Contatti" data-en="Contact"></span></h2>
             <div class="info-grid">
                 <div class="contact-form">
-                    <h3>Invia un messaggio</h3>
-                    <form action="mailto:fedesgambe@icloud.com" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="name" placeholder="Il tuo Nome" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="email" name="email" placeholder="La tua Email"
-                                    required>
-                            </div>
+                    <h3 data-it="Invia un messaggio" data-en="Send a message"></h3>
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="inp-name" data-placeholder-it="Il tuo Nome" data-placeholder-en="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="message" rows="4" placeholder="Il tuo Messaggio"
-                                required></textarea>
+                            <input class="form-control" type="email" id="inp-email" data-placeholder-it="La tua Email" data-placeholder-en="Your Email" required>
                         </div>
-                        <button class="btn" type="submit">
-                            <i class="fas fa-paper-plane"></i> Invia Messaggio
-                        </button>
-                    </form>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="inp-msg" rows="4" data-placeholder-it="Il tuo Messaggio" data-placeholder-en="Your Message" required></textarea>
+                    </div>
+                    <button class="btn" onclick="sendMail()">
+                        <i class="fas fa-paper-plane"></i> <span id="send-label" data-it="Invia Messaggio" data-en="Send Message"></span>
+                    </button>
                 </div>
-                <script>
-                    function formatMailto(form) {
-                        const name = encodeURIComponent(form.name.value);
-                        const email = encodeURIComponent(form.email.value);
-                        const message = encodeURIComponent(form.message.value);
-
-                        const subject = `Messaggio da ${name} (Curriculum Vitae)`;
-                        const body = `Nome: ${name}%0AEmail: ${email}%0A%0AMessaggio:%0A${message}`;
-
-                        window.location.href = `mailto:fedesgambe@icloud.com?subject=${subject}&body=${body}`;
-                    }
-                </script>
                 <div>
-                    <h3>Informazioni di Contatto</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>40012 Calderara di Reno (BO), Italia</div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>(+39) 347.....41</div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>fedesgambe@icloud.com</div>
-                    </div>
+                    <h3 data-it="Informazioni di Contatto" data-en="Contact Information"></h3>
+                    <br>
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><span data-it="40012 Calderara di Reno (BO), Italia" data-en="40012 Calderara di Reno (BO), Italy"></span></div></div>
+                    <div class="info-item"><i class="fas fa-phone"></i><div>(+39) 347.....41</div></div>
+                    <div class="info-item"><i class="fas fa-envelope"></i><div>fedesgambe@icloud.com</div></div>
                     <div class="social-links" style="margin-top: 20px;">
-                        <a href="https://www.linkedin.com/in/federico-sgambelluri-768475230" target="_blank"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/federicosgambelluri" target="_blank"><i
-                                class="fab fa-github"></i></a>
-                        <a href="https://linktr.ee/federico.sgambelluri.yt" target="_blank"><i
-                                class="fas fa-link"></i></a>
+                        <a href="https://www.linkedin.com/in/federico-sgambelluri-768475230" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/federicosgambelluri" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linktr.ee/federico.sgambelluri.yt" target="_blank"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    </div><!-- /container -->
 
     <script>
-        // Generazione stelle animate
+        /* ── STARS ── */
         function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const numberOfStars = 100;
-
-            for (let i = 0; i < numberOfStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                starsContainer.appendChild(star);
+            const c = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const s = document.createElement('div');
+                s.className = 'star';
+                s.style.left = Math.random() * 100 + '%';
+                s.style.top  = Math.random() * 100 + '%';
+                s.style.animationDelay    = Math.random() * 3 + 's';
+                s.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                c.appendChild(s);
             }
         }
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        /* ── LANGUAGE SWITCH ── */
+        let currentLang = 'it';
+
+        function setLang(lang) {
+            currentLang = lang;
+
+            // Toggle button styles
+            document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+            // Update all elements with data-it / data-en
+            document.querySelectorAll('[data-it]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+
+            // Placeholders for inputs
+            document.querySelectorAll('[data-placeholder-it]').forEach(el => {
+                el.placeholder = el.getAttribute('data-placeholder-' + lang);
+            });
+
+            // Update <html lang> attribute
+            document.documentElement.lang = lang;
+        }
+
+        /* ── CONTACT MAIL ── */
+        function sendMail() {
+            const name    = document.getElementById('inp-name').value;
+            const email   = document.getElementById('inp-email').value;
+            const message = document.getElementById('inp-msg').value;
+            if (!name || !email || !message) return;
+            const subject = encodeURIComponent((currentLang === 'it' ? 'Messaggio da ' : 'Message from ') + name + ' (CV)');
+            const body    = encodeURIComponent((currentLang === 'it' ? 'Nome: ' : 'Name: ') + name + '\nEmail: ' + email + '\n\n' + (currentLang === 'it' ? 'Messaggio:\n' : 'Message:\n') + message);
+            window.location.href = 'mailto:fedesgambe@icloud.com?subject=' + subject + '&body=' + body;
+        }
+
+        /* ── SMOOTH SCROLL ── */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Animazione al caricamento
-        window.addEventListener('load', function () {
-            createStars();
-
-            // Animazione sezioni
-            const sections = document.querySelectorAll('.section');
-            sections.forEach((section, index) => {
-                section.style.animationDelay = (index * 0.1) + 's';
-            });
-        });
-
-        // Effetto hover sulle skill
+        /* ── SKILL HOVER ── */
         document.querySelectorAll('.skill-item').forEach(item => {
-            item.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-10px) scale(1.05)';
-            });
+            item.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-10px) scale(1.05)'; });
+            item.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0) scale(1)'; });
+        });
 
-            item.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0) scale(1)';
+        /* ── INIT ── */
+        window.addEventListener('load', function() {
+            createStars();
+            setLang('it'); // default language
+            document.querySelectorAll('.section').forEach((s, i) => {
+                s.style.animationDelay = (i * 0.1) + 's';
             });
         });
     </script>
 </body>
-
 </html>
